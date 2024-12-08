@@ -27,8 +27,6 @@ const Showcase = () => {
             </Link>
           </button>
         </div>
-
-        <img className="icon" src="/favicon.ico"></img>
       </main>
     </motion.div>
   );
