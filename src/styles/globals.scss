@@ -72,3 +72,50 @@ body {
 .btn:hover {
   background-color: #19191a8b;
 }
+
+/* Existing global styles... */
+
+.radio-label {
+  display: flex; /* Align the radio button and label inline */
+  align-items: center; /* Center vertically */
+  margin-bottom: 10px; /* Space between radio options */
+  cursor: pointer; /* Pointer on hover */
+}
+
+.radio-label input[type="radio"] {
+  appearance: none; /* Remove default appearance */
+  width: 20px; /* Custom width */
+  height: 20px; /* Custom height */
+  border-radius: 50%; /* Make it round */
+  border: 2px solid #bfbfbf; /* Border color */
+  margin-right: 10px; /* Space between radio and label text */
+  position: relative; /* Position relative for the pseudo element */
+  outline: none; /* Remove outline on focus */
+  cursor: pointer; /* Pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background */
+}
+
+.radio-label input[type="radio"]:checked {
+  background-color: #444df7; /* Background color when checked */
+  border: 2px solid #444df7; /* Change border color when checked */
+}
+
+.radio-label input[type="radio"]:checked::after {
+  content: ""; /* Create a pseudo element for checked state */
+  width: 10px; /* Inner circle size */
+  height: 10px; /* Inner circle size */
+  border-radius: 50%; /* Make it round */
+  background-color: #fff; /* Inner circle color */
+  position: absolute; /* Absolute positioning */
+  top: 4px; /* Adjust position */
+  left: 4px; /* Adjust position */
+}
+
+/* Additional styles for spacing and layout */
+.security-selection {
+  margin: 20px 0; /* Margin around the selection */
+}
+
+.security-selection h2 {
+  margin-bottom: 10px; /* Space below the title */
+}
