@@ -24,7 +24,7 @@ export default function Commands() {
         <nav className="accordion arrows" id="commands">
           <header className="box">
             <label htmlFor="acc-close" className="box-title h-color">
-              ⚡ Commands
+              ⚡ Dashboard
             </label>
           </header>
           <input type="radio" name="accordion" id="cb1" />

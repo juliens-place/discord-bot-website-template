@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Klar. | Home</title>
+        <title>Klar | Home</title>
         <meta name="description" content="Klar. Where ER:LC Meets Discord, Effortlessly." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
