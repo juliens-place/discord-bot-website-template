@@ -15,7 +15,7 @@ export default function Commands() {
     >
       <Head>
         <title>Klar | Dashboard</title>
-        <meta name="description" content="Commands page | Minimal and awesome discord bot website created with ❤️ using NextJS" />
+        <meta name="description" content="Klar | Commands" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
