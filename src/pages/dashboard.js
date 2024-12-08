@@ -8,14 +8,20 @@ import { motion } from "framer-motion";
 
 export default function Commands() {
   const [prefix, setPrefix] = useState("k!"); // Default prefix
+  const [isEditing, setIsEditing] = useState(false); // Tracks if the prefix is being edited
 
   const handlePrefixChange = (event) => {
-    setPrefix(event.target.value); // Update prefix value as user types
+    setPrefix(event.target.value); // Update the prefix as user types
+  };
+
+  const toggleEditing = () => {
+    setIsEditing(!isEditing); // Toggle between editing and viewing
   };
 
   const handlePrefixSubmit = () => {
-    alert(`Prefix changed to: ${prefix}`);
-    // You can add logic to save the prefix (e.g., API call)
+    setIsEditing(false); // Stop editing
+    alert(`Prefix updated to: ${prefix}`); // Alert the updated prefix
+    // Add logic to save the updated prefix (e.g., API call) if necessary
   };
 
   return (
@@ -48,13 +54,28 @@ export default function Commands() {
             <div className="box-content p-color">
               <ul>
                 <li>
-                  <kbd>Current Prefix:</kbd> <span className="p-color">{prefix}</span>
+                  <kbd>Prefix:</kbd>{" "}
+                  {isEditing ? (
+                    <input
+                      type="text"
+                      value={prefix}
+                      onChange={handlePrefixChange}
+                      onBlur={handlePrefixSubmit} // Save when input loses focus
+                      className="prefix-input"
+                      autoFocus
+                    />
+                  ) : (
+                    <span onClick={toggleEditing} className="prefix-display">
+                      {prefix}
+                    </span>
+                  )}
                 </li>
                 <li>
-                  <input type="text" value={prefix} onChange={handlePrefixChange} placeholder="Enter new prefix" className="prefix-input" />
-                  <button onClick={handlePrefixSubmit} className="prefix-button">
-                    Submit
-                  </button>
+                  {!isEditing && (
+                    <button onClick={toggleEditing} className="prefix-button">
+                      Edit Prefix
+                    </button>
+                  )}
                 </li>
               </ul>
             </div>
