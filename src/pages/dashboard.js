@@ -14,14 +14,16 @@ export default function Commands() {
     setPrefix(event.target.value); // Update the prefix as user types
   };
 
-  const toggleEditing = () => {
-    setIsEditing(!isEditing); // Toggle between editing and viewing
-  };
-
   const handlePrefixSubmit = () => {
     setIsEditing(false); // Stop editing
     alert(`Prefix updated to: ${prefix}`); // Alert the updated prefix
     // Add logic to save the updated prefix (e.g., API call) if necessary
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handlePrefixSubmit(); // Save the prefix when Enter is pressed
+    }
   };
 
   return (
@@ -60,19 +62,26 @@ export default function Commands() {
                       type="text"
                       value={prefix}
                       onChange={handlePrefixChange}
-                      onBlur={handlePrefixSubmit} // Save when input loses focus
+                      onBlur={handlePrefixSubmit} // Save on blur
+                      onKeyPress={handleKeyPress} // Save on Enter
                       className="prefix-input"
                       autoFocus
                     />
                   ) : (
-                    <span onClick={toggleEditing} className="prefix-display">
+                    <span
+                      onClick={() => setIsEditing(true)} // Enable editing
+                      className="prefix-display"
+                    >
                       {prefix}
                     </span>
                   )}
                 </li>
                 <li>
                   {!isEditing && (
-                    <button onClick={toggleEditing} className="prefix-button">
+                    <button
+                      onClick={() => setIsEditing(true)} // Enable editing
+                      className="prefix-button"
+                    >
                       Edit Prefix
                     </button>
                   )}
