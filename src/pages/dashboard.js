@@ -43,8 +43,6 @@ export default function Commands() {
             <div className="box-content p-color">
               <ul>
                 <li>
-                  <kbd>Work in progress</kbd> - <span className="p-color">stay tuned!</span>
-                  {/* Adding the Radio Select Menu for Security Level */}
                   <div className="security-selection">
                     <h2>Security Level Settings</h2>
                     <div className="radio-group">
