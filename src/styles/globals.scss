@@ -75,7 +75,8 @@ body {
 
 /* Ensures the entire section has a white background and padding */
 .security-selection {
-  background-color: white; /* White background */
+  background-color: rgb(8, 8, 8);
+  color: white;
   padding: 20px; /* Padding around the content */
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
@@ -121,7 +122,8 @@ input[type="radio"]:checked::after {
   width: 14px; /* Smaller inner circle */
   height: 14px; /* Smaller inner circle */
   border-radius: 50%; /* Make it round */
-  background-color: white; /* Inner circle color */
+  background-color: black; /* Inner circle color */
+  color: white;
 }
 
 /* Heading style */
