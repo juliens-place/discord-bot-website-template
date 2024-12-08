@@ -26,6 +26,7 @@ const Showcase = () => {
               Join server!
             </Link>
           </button>
+          <img src="/favicon.ico"></img>
         </div>
       </main>
     </motion.div>
