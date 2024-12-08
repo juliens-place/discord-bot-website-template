@@ -1,11 +1,18 @@
 import Head from "next/head";
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
 import { motion } from "framer-motion";
+import { useState } from "react"; // Import useState for managing state
 
 export default function Commands() {
+  // State to manage the selected security level
+  const [securityLevel, setSecurityLevel] = useState("default");
+
+  // Handler function to update the security level
+  const handleSecurityChange = (event) => {
+    setSecurityLevel(event.target.value);
+  };
+
   return (
     <motion.div
       initial={{
@@ -37,26 +44,33 @@ export default function Commands() {
               <ul>
                 <li>
                   <kbd>Work in progress</kbd> - <span className="p-color">stay tuned!</span>
-                  <hr />
-                  <p>
-                    Security level
-                    <label>
-                      <input type="radio" name="sec_level" value="min" />
-                      Minumum
-                    </label>
-                    <label>
-                      <input type="radio" name="sec_level" value="def" defaultChecked={true} />
-                      Default
-                    </label>
-                    <label>
-                      <input type="radio" name="sec_level" value="max" />
-                      Maximum
-                    </label>
-                  </p>
                 </li>
               </ul>
             </div>
           </section>
+
+          {/* Adding the Radio Select Menu for Security Level */}
+          <div className="security-selection">
+            <h2>Select Security Level</h2>
+            <div>
+              <label>
+                <input type="radio" value="minimum" checked={securityLevel === "minimum"} onChange={handleSecurityChange} />
+                Minimum
+              </label>
+              <label>
+                <input type="radio" value="default" checked={securityLevel === "default"} onChange={handleSecurityChange} />
+                Default
+              </label>
+              <label>
+                <input type="radio" value="maximum" checked={securityLevel === "maximum"} onChange={handleSecurityChange} />
+                Maximum
+              </label>
+            </div>
+            {/* Displaying the selected security level */}
+            <p>
+              Selected Security Level: <strong>{securityLevel}</strong>
+            </p>
+          </div>
 
           <input type="radio" name="accordion" id="acc-close" />
         </nav>
