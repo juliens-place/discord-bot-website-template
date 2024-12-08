@@ -44,31 +44,30 @@ export default function Commands() {
               <ul>
                 <li>
                   <kbd>Work in progress</kbd> - <span className="p-color">stay tuned!</span>
+                  {/* Adding the Radio Select Menu for Security Level */}
+                  <div className="security-selection">
+                    <h2>Security Level Settings</h2>
+                    <div className="radio-group">
+                      <label>
+                        <input type="radio" value="maximum" checked={securityLevel === "maximum"} onChange={handleSecurityChange} />
+                        <span>⇢ Maximum</span>
+                      </label>
+                      <label>
+                        <input type="radio" value="default" checked={securityLevel === "default"} onChange={handleSecurityChange} />
+                        <span>⇢ Default</span>
+                      </label>
+                      <label>
+                        <input type="radio" value="minimum" checked={securityLevel === "minimum"} onChange={handleSecurityChange} />
+                        <span>⇢ Minimum</span>
+                      </label>
+                    </div>
+
+                    <p>
+                      Current Security Level: <strong>{securityLevel}</strong>
+                    </p>
+                  </div>
                 </li>
               </ul>
-            </div>
-
-            {/* Adding the Radio Select Menu for Security Level */}
-            <div className="security-selection">
-              <h2>Security Level Settings</h2>
-              <div className="radio-group">
-                <label>
-                  <input type="radio" value="maximum" checked={securityLevel === "maximum"} onChange={handleSecurityChange} />
-                  <span>⇢ Maximum</span>
-                </label>
-                <label>
-                  <input type="radio" value="default" checked={securityLevel === "default"} onChange={handleSecurityChange} />
-                  <span>⇢ Default</span>
-                </label>
-                <label>
-                  <input type="radio" value="minimum" checked={securityLevel === "minimum"} onChange={handleSecurityChange} />
-                  <span>⇢ Minimum</span>
-                </label>
-              </div>
-
-              <p>
-                Current Security Level: <strong>{securityLevel}</strong>
-              </p>
             </div>
           </section>
 
