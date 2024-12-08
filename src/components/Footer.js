@@ -42,7 +42,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link className="p-color" href="#">
-                  /discord
+                  /premium
                 </Link>
               </li>
             </ul>
@@ -61,7 +61,7 @@ const Footer = () => {
           </div>
           <div className="footer-sec2-link">
             <Link className="p-color no-decoration" href="#">
-              /source-code
+              /discord
             </Link>
             <Link target="_blank" className="p-color no-decoration" href="#">
               /terms
