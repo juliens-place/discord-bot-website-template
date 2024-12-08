@@ -52,16 +52,16 @@ export default function Commands() {
           {/* Adding the Radio Select Menu for Security Level */}
           <div className="security-selection">
             <h2>Select Security Level</h2>
-            <div>
-              <label className="radio-label">
+            <div className="radio-group">
+              <label>
                 <input type="radio" value="minimum" checked={securityLevel === "minimum"} onChange={handleSecurityChange} />
                 Minimum
               </label>
-              <label className="radio-label">
+              <label>
                 <input type="radio" value="default" checked={securityLevel === "default"} onChange={handleSecurityChange} />
                 Default
               </label>
-              <label className="radio-label">
+              <label>
                 <input type="radio" value="maximum" checked={securityLevel === "maximum"} onChange={handleSecurityChange} />
                 Maximum
               </label>

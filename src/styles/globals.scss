@@ -73,49 +73,63 @@ body {
   background-color: #19191a8b;
 }
 
-/* Existing global styles... */
-
-.radio-label {
-  display: flex; /* Align the radio button and label inline */
-  align-items: center; /* Center vertically */
-  margin-bottom: 10px; /* Space between radio options */
-  cursor: pointer; /* Pointer on hover */
-}
-
-.radio-label input[type="radio"] {
-  appearance: none; /* Remove default appearance */
-  width: 20px; /* Custom width */
-  height: 20px; /* Custom height */
-  border-radius: 50%; /* Make it round */
-  border: 2px solid #bfbfbf; /* Border color */
-  margin-right: 10px; /* Space between radio and label text */
-  position: relative; /* Position relative for the pseudo element */
-  outline: none; /* Remove outline on focus */
-  cursor: pointer; /* Pointer on hover */
-  transition: background-color 0.3s ease; /* Smooth transition for background */
-}
-
-.radio-label input[type="radio"]:checked {
-  background-color: #444df7; /* Background color when checked */
-  border: 2px solid #444df7; /* Change border color when checked */
-}
-
-.radio-label input[type="radio"]:checked::after {
-  content: ""; /* Create a pseudo element for checked state */
-  width: 10px; /* Inner circle size */
-  height: 10px; /* Inner circle size */
-  border-radius: 50%; /* Make it round */
-  background-color: #fff; /* Inner circle color */
-  position: absolute; /* Absolute positioning */
-  top: 4px; /* Adjust position */
-  left: 4px; /* Adjust position */
-}
-
-/* Additional styles for spacing and layout */
+/* Ensures the entire section has a white background and padding */
 .security-selection {
-  margin: 20px 0; /* Margin around the selection */
+  background-color: white; /* White background */
+  padding: 20px; /* Padding around the content */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+/* Styles for the radio group */
+.radio-group {
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack the labels vertically */
+}
+
+/* Ensure each radio button label is styled */
+.label {
+  display: flex;
+  align-items: center; /* Center align label text with radio button */
+  margin-bottom: 10px; /* Space between radio buttons */
+}
+
+/* Custom styles for the radio input to ensure they are round */
+input[type="radio"] {
+  appearance: none; /* Remove default styling */
+  width: 20px; /* Set width for custom styling */
+  height: 20px; /* Set height for custom styling */
+  border: 2px solid #0070f3; /* Border color for unselected state */
+  border-radius: 50%; /* Make it round */
+  outline: none; /* Remove outline */
+  cursor: pointer; /* Pointer cursor for better UX */
+  margin-right: 10px; /* Space between radio and label text */
+  position: relative; /* Relative positioning for pseudo-elements */
+}
+
+/* Checked state styles */
+input[type="radio"]:checked {
+  background-color: #0070f3; /* Background color for checked state */
+}
+
+/* Pseudo-element for the checked state */
+input[type="radio"]:checked::after {
+  content: ""; /* Needed for the pseudo-element */
+  position: absolute; /* Position it inside the radio */
+  top: 3px; /* Adjust position */
+  left: 3px; /* Adjust position */
+  width: 14px; /* Smaller inner circle */
+  height: 14px; /* Smaller inner circle */
+  border-radius: 50%; /* Make it round */
+  background-color: white; /* Inner circle color */
+}
+
+/* Heading style */
 .security-selection h2 {
-  margin-bottom: 10px; /* Space below the title */
+  margin-bottom: 15px; /* Space below heading */
+}
+
+/* Paragraph style */
+.security-selection p {
+  margin-top: 15px; /* Space above selected level text */
 }
