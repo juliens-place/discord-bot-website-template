@@ -47,30 +47,30 @@ export default function Commands() {
                 </li>
               </ul>
             </div>
-          </section>
 
-          {/* Adding the Radio Select Menu for Security Level */}
-          <div className="security-selection">
-            <h2>Security Level Settings</h2>
-            <div className="radio-group">
-              <label>
-                <input type="radio" value="maximum" checked={securityLevel === "maximum"} onChange={handleSecurityChange} />
-                <span>⇢ Maximum</span>
-              </label>
-              <label>
-                <input type="radio" value="default" checked={securityLevel === "default"} onChange={handleSecurityChange} />
-                <span>⇢ Default</span>
-              </label>
-              <label>
-                <input type="radio" value="minimum" checked={securityLevel === "minimum"} onChange={handleSecurityChange} />
-                <span>⇢ Minimum</span>
-              </label>
+            {/* Adding the Radio Select Menu for Security Level */}
+            <div className="security-selection">
+              <h2>Security Level Settings</h2>
+              <div className="radio-group">
+                <label>
+                  <input type="radio" value="maximum" checked={securityLevel === "maximum"} onChange={handleSecurityChange} />
+                  <span>⇢ Maximum</span>
+                </label>
+                <label>
+                  <input type="radio" value="default" checked={securityLevel === "default"} onChange={handleSecurityChange} />
+                  <span>⇢ Default</span>
+                </label>
+                <label>
+                  <input type="radio" value="minimum" checked={securityLevel === "minimum"} onChange={handleSecurityChange} />
+                  <span>⇢ Minimum</span>
+                </label>
+              </div>
+
+              <p>
+                Current Security Level: <strong>{securityLevel}</strong>
+              </p>
             </div>
-
-            <p>
-              Current Security Level: <strong>{securityLevel}</strong>
-            </p>
-          </div>
+          </section>
 
           <input type="radio" name="accordion" id="acc-close" />
         </nav>
