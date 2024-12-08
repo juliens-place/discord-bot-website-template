@@ -12,7 +12,7 @@ const Footer = () => {
             <ul>
               <li>
                 <Link className="h-color" href="/">
-                  bot.gg
+                  Klar.
                 </Link>
                 <span
                   style={{

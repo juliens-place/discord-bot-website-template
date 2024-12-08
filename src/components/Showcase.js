@@ -14,7 +14,6 @@ const Showcase = () => {
         <h2 className="showcase-header-text h-color">❝Where ER:LC Meets Discord, Effortlessly.❞</h2>
         <p className="showcase-para p-color">Improve your ER:LC moderation experience and connect both game and automation.</p>
 
-        <span className="p-color">Bot is online!</span>
         <div className="showcase-btn">
           <button className="btn">
             <Link className="h-color no-decoration" href="#">
