@@ -42,7 +42,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link className="p-color" href="#">
-                  /discord-server
+                  /discord
                 </Link>
               </li>
             </ul>
