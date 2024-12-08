@@ -93,6 +93,7 @@ body {
   display: flex;
   align-items: center; /* Center align label text with radio button */
   margin-bottom: 10px; /* Space between radio buttons */
+  cursor: pointer; /* Pointer cursor for better UX */
 }
 
 /* Custom styles for the radio input to ensure they are round */
@@ -103,7 +104,6 @@ input[type="radio"] {
   border: 2px solid #0070f3; /* Border color for unselected state */
   border-radius: 50%; /* Make it round */
   outline: none; /* Remove outline */
-  cursor: pointer; /* Pointer cursor for better UX */
   margin-right: 10px; /* Space between radio and label text */
   position: relative; /* Relative positioning for pseudo-elements */
   cursor: pointer;
@@ -135,4 +135,22 @@ input[type="radio"]:checked::after {
 /* Paragraph style */
 .security-selection p {
   margin-top: 15px; /* Space above selected level text */
+}
+
+/* Hover effect to move the radio option */
+.radio-group label {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease; /* Smooth hover effect */
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.radio-group label:hover {
+  transform: translateX(10px); /* Move right on hover */
+}
+
+/* Underline the currently selected option */
+.radio-group label input[type="radio"]:checked + span {
+  text-decoration: underline; /* Add underline for selected label */
 }

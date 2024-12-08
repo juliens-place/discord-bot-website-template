@@ -54,15 +54,19 @@ export default function Commands() {
             <h2>Select Security Level</h2>
             <div className="radio-group">
               <label>
-                <input type="radio" value="minimum" checked={securityLevel === "minimum"} onChange={handleSecurityChange} />⇢ Minimum
+                <input type="radio" value="minimum" checked={securityLevel === "minimum"} onChange={handleSecurityChange} />
+                <span>⇢ Minimum</span>
               </label>
               <label>
-                <input type="radio" value="default" checked={securityLevel === "default"} onChange={handleSecurityChange} />⇢ Default
+                <input type="radio" value="default" checked={securityLevel === "default"} onChange={handleSecurityChange} />
+                <span>⇢ Default</span>
               </label>
               <label>
-                <input type="radio" value="maximum" checked={securityLevel === "maximum"} onChange={handleSecurityChange} />⇢ Maximum
+                <input type="radio" value="maximum" checked={securityLevel === "maximum"} onChange={handleSecurityChange} />
+                <span>⇢ Maximum</span>
               </label>
             </div>
+
             <p>
               Selected Security Level: <strong>{securityLevel}</strong>
             </p>
