@@ -14,10 +14,7 @@ export default function Home() {
     <>
       <Head>
         <title>BOT</title>
-        <meta
-          name="description"
-          content="Minimal and awesome discord bot website created with ❤️ using NextJS"
-        />
+        <meta name="description" content="Klar. Where ER:LC Meets Discord, Effortlessly." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
