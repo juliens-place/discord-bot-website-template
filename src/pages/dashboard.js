@@ -51,12 +51,35 @@ export default function Commands() {
                   <kbd>Work in progress</kbd> - <span className="p-color">stay tuned!</span>
                 </li>
                 <li>
-                  <div>
-                    <label htmlFor="prefixInput" className="p-color">
+                  <div style={{ display: "flex", alignItems: "center", marginTop: "10px" }}>
+                    <label htmlFor="prefixInput" className="p-color" style={{ marginRight: "10px" }}>
                       Custom Prefix:
                     </label>
-                    <input id="prefixInput" type="text" value={prefix} onChange={handlePrefixChange} className="prefix-input" />
-                    <button onClick={handleSubmit} className="submit-button">
+                    <input
+                      id="prefixInput"
+                      type="text"
+                      value={prefix}
+                      onChange={handlePrefixChange}
+                      className="prefix-input"
+                      style={{
+                        padding: "4px 8px",
+                        border: "1px solid #ccc",
+                        borderRadius: "4px",
+                        marginRight: "10px",
+                      }}
+                    />
+                    <button
+                      onClick={handleSubmit}
+                      className="submit-button"
+                      style={{
+                        padding: "4px 12px",
+                        backgroundColor: "#007bff",
+                        color: "white",
+                        border: "none",
+                        borderRadius: "4px",
+                        cursor: "pointer",
+                      }}
+                    >
                       Submit
                     </button>
                   </div>
