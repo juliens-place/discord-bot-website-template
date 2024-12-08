@@ -37,6 +37,22 @@ export default function Commands() {
               <ul>
                 <li>
                   <kbd>Work in progress</kbd> - <span className="p-color">stay tuned!</span>
+                  <hr />
+                  <p>
+                    Security level
+                    <label>
+                      <input type="radio" name="sec_level" value="min" />
+                      Minumum
+                    </label>
+                    <label>
+                      <input type="radio" name="sec_level" value="def" defaultChecked={true} />
+                      Default
+                    </label>
+                    <label>
+                      <input type="radio" name="sec_level" value="max" />
+                      Maximum
+                    </label>
+                  </p>
                 </li>
               </ul>
             </div>
