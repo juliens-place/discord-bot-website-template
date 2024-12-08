@@ -1,29 +1,21 @@
-import { useState } from "react";
 import Head from "next/head";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Commands() {
-  const [prefix, setPrefix] = useState("k!"); // Default prefix
-  const [isEditing, setIsEditing] = useState(false); // Tracks if the prefix is being edited
+  const [prefix, setPrefix] = useState("k!");
 
   const handlePrefixChange = (event) => {
-    setPrefix(event.target.value); // Update the prefix as user types
+    setPrefix(event.target.value);
   };
 
-  const handlePrefixSubmit = () => {
-    setIsEditing(false); // Stop editing
-    alert(`Prefix updated to: ${prefix}`); // Alert the updated prefix
-    // Add logic to save the updated prefix (e.g., API call) if necessary
-  };
-
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
-      handlePrefixSubmit(); // Save the prefix when Enter is pressed
-    }
+  const handleSubmit = () => {
+    alert(`Prefix set to: ${prefix}`);
+    // Add logic here to save the custom prefix
   };
 
   return (
@@ -50,41 +42,24 @@ export default function Commands() {
           <input type="radio" name="accordion" id="cb1" />
           <section className="box">
             <label className="box-title p-color" htmlFor="cb1">
-              Prefix Management
+              Coming soon
             </label>
             <label className="box-close" htmlFor="acc-close"></label>
             <div className="box-content p-color">
               <ul>
                 <li>
-                  <kbd>Prefix:</kbd>{" "}
-                  {isEditing ? (
-                    <input
-                      type="text"
-                      value={prefix}
-                      onChange={handlePrefixChange}
-                      onBlur={handlePrefixSubmit} // Save on blur
-                      onKeyPress={handleKeyPress} // Save on Enter
-                      className="prefix-input"
-                      autoFocus
-                    />
-                  ) : (
-                    <span
-                      onClick={() => setIsEditing(true)} // Enable editing
-                      className="prefix-display"
-                    >
-                      {prefix}
-                    </span>
-                  )}
+                  <kbd>Work in progress</kbd> - <span className="p-color">stay tuned!</span>
                 </li>
                 <li>
-                  {!isEditing && (
-                    <button
-                      onClick={() => setIsEditing(true)} // Enable editing
-                      className="prefix-button"
-                    >
-                      Edit Prefix
+                  <div>
+                    <label htmlFor="prefixInput" className="p-color">
+                      Custom Prefix:
+                    </label>
+                    <input id="prefixInput" type="text" value={prefix} onChange={handlePrefixChange} className="prefix-input" />
+                    <button onClick={handleSubmit} className="submit-button">
+                      Submit
                     </button>
-                  )}
+                  </div>
                 </li>
               </ul>
             </div>

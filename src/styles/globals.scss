@@ -72,30 +72,3 @@ body {
 .btn:hover {
   background-color: #19191a8b;
 }
-
-.prefix-input {
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.prefix-display {
-  cursor: pointer;
-  color: #007bff;
-  text-decoration: underline;
-}
-
-.prefix-button {
-  margin-top: 10px;
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.prefix-button:hover {
-  background-color: #0056b3;
-}
