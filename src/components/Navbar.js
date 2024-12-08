@@ -26,8 +26,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link className="p-color" href="#" target="_blank">
-                /source-code
+              <Link className="p-color" href="/dashboard">
+                /dashboard
               </Link>
             </li>
           </ul>
