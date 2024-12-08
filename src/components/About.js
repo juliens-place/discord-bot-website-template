@@ -34,7 +34,7 @@ const About = () => {
 
         <section className="about-stats">
           <div className="about-stats-card">
-            <h4 className="h-color">--+</h4>
+            <h4 className="h-color">--</h4>
             <p className="p-color">Total Servers</p>
           </div>
           <div className="about-stats-card">

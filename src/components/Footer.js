@@ -23,14 +23,7 @@ const Footer = () => {
                   }}
                   className="p-color"
                 >
-                  <Image
-                    src={botOnlineStatus}
-                    width={20}
-                    height={20}
-                    alt="online-status"
-                    className="onlineStatus"
-                  />{" "}
-                  Bot is online!
+                  <Image src={botOnlineStatus} width={20} height={20} alt="online-status" className="onlineStatus" /> Klar is online!
                 </span>
               </li>
             </ul>
@@ -44,7 +37,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link className="p-color" href="#">
-                  /support
+                  /dashboard
                 </Link>
               </li>
               <li>
@@ -59,26 +52,19 @@ const Footer = () => {
           <hr />
           <div>
             <p className="p-color">
-              Created with ❤️ by{" "}
-              <Link
-                href="https://github.com/preetsuthar17"
-                className="h-color no-decoration"
-              >
-                Preet Suthar
+              Created by{" "}
+              <Link href="https://lasrr.de/" className="h-color no-decoration">
+                laser
               </Link>
             </p>
             <p className="p-color">{year} &copy; All rights reserved!</p>
           </div>
           <div className="footer-sec2-link">
             <Link className="p-color no-decoration" href="#">
-              /support
-            </Link>
-            <Link
-              target="_blank"
-              className="p-color no-decoration"
-              href="https://github.com/preetsuthar17/discord-bot-website-template"
-            >
               /source-code
+            </Link>
+            <Link target="_blank" className="p-color no-decoration" href="#">
+              /terms
             </Link>
             <Link className="p-color no-decoration" href="#">
               /privacy
