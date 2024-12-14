@@ -1,33 +1,27 @@
-import ffmpeg from "fluent-ffmpeg";
-import path from "path";
-import fs from "fs";
+import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
 
-export default function handler(req, res) {
+const ffmpeg = createFFmpeg({ log: true });
+
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { inputFilePath, outputFilePath } = req.body;
+  const { inputBuffer } = req.body;
 
-  if (!inputFilePath || !outputFilePath) {
-    return res.status(400).json({ error: "Missing input or output file path" });
+  if (!inputBuffer) {
+    return res.status(400).json({ error: "Missing input file buffer" });
   }
 
-  const inputAbsolutePath = path.resolve(inputFilePath);
-  const outputAbsolutePath = path.resolve(outputFilePath);
+  try {
+    await ffmpeg.load();
+    ffmpeg.FS("writeFile", "input.wmv", await fetchFile(Buffer.from(inputBuffer, "base64")));
 
-  // Check if input file exists
-  if (!fs.existsSync(inputAbsolutePath)) {
-    return res.status(404).json({ error: "Input file does not exist" });
+    await ffmpeg.run("-i", "input.wmv", "output.mp4");
+
+    const output = ffmpeg.FS("readFile", "output.mp4");
+    res.status(200).send(Buffer.from(output).toString("base64"));
+  } catch (err) {
+    res.status(500).json({ error: "Conversion failed", details: err.message });
   }
-
-  ffmpeg(inputAbsolutePath)
-    .output(outputAbsolutePath)
-    .on("end", () => {
-      res.status(200).json({ message: "Conversion completed", outputFile: outputAbsolutePath });
-    })
-    .on("error", (err) => {
-      res.status(500).json({ error: "Conversion failed", details: err.message });
-    })
-    .run();
 }
