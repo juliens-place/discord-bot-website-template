@@ -1,27 +1,44 @@
-import { createFFmpeg, fetchFile } from "@ffmpeg/ffmpeg";
-
-const ffmpeg = createFFmpeg({ log: true });
+import ffmpeg from "fluent-ffmpeg";
+import fs from "fs";
+import { Readable } from "stream";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { inputBuffer } = req.body;
-
-  if (!inputBuffer) {
-    return res.status(400).json({ error: "Missing input file buffer" });
+  const { inputFile, outputFilename } = req.body; // Expect input file as base64 string and output filename
+  if (!inputFile || !outputFilename) {
+    return res.status(400).json({ error: "Missing input file or output filename" });
   }
 
   try {
-    await ffmpeg.load();
-    ffmpeg.FS("writeFile", "input.wmv", await fetchFile(Buffer.from(inputBuffer, "base64")));
+    // Convert input base64 to a readable stream
+    const inputStream = new Readable();
+    inputStream.push(Buffer.from(inputFile, "base64"));
+    inputStream.push(null);
 
-    await ffmpeg.run("-i", "input.wmv", "output.mp4");
+    // Create output stream
+    const outputStream = new Readable({
+      read() {
+        this.push(null); // End of stream
+      },
+    });
+    const outputBuffer = [];
 
-    const output = ffmpeg.FS("readFile", "output.mp4");
-    res.status(200).send(Buffer.from(output).toString("base64"));
+    // Run ffmpeg
+    ffmpeg(inputStream)
+      .format("mp4")
+      .on("data", (chunk) => outputBuffer.push(chunk))
+      .on("end", () => {
+        const convertedFile = Buffer.concat(outputBuffer);
+        res.status(200).json({ file: convertedFile.toString("base64") }); // Send back as base64
+      })
+      .on("error", (err) => {
+        res.status(500).json({ error: "Conversion failed", details: err.message });
+      })
+      .pipe(outputStream);
   } catch (err) {
-    res.status(500).json({ error: "Conversion failed", details: err.message });
+    res.status(500).json({ error: "Processing failed", details: err.message });
   }
 }
