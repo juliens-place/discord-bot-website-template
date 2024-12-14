@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { inputFile, outputFilename } = req.body; // Expect input file as base64 string and output filename
+  const { inputFile, outputFilename } = req.body;
   if (!inputFile || !outputFilename) {
     return res.status(400).json({ error: "Missing input file or output filename" });
   }
